@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int xstrlen( char * car) {
   int i = 0;
@@ -35,15 +36,35 @@ char * xstrcat( char *head, char *tail ) {
   return head;
 }
 
+//TODO: N VERSION
+
+int xstrcmp( char *s1, char *s2 ){
+  int i = 0;
+  while ( s1[i] || s2[i] ){
+    if ( s1[i] < s2[i] ){
+      return -1;
+    } else if ( s1[i] > s2[i] ){
+      return 1;
+    } else {
+      i++;
+    }
+  }
+  return 0;
+}
+
 int main() {
   char c[] = "papaya";
-  printf("string: %s\n",c);
-  printf("length: %d\n", xstrlen(c));
+  printf("c: %s\n",c);
+  printf("xstrlen(c): %d\n", xstrlen(c));
   char e[] = "mangosteen";
+  printf("e: %s\n",e);
   xstrcpy(c,e);
-  printf("copied c: %s\n", c);
+  printf("e copied to c: %s\n", c);
   char f[] = "lychee";
   xstrcat(c,f);
   printf("c concat 'lychee': %s\n",c);
+  char g[] = "lyche";
+  printf("f: %s, g: %s\n",f,g);
+  printf("xcmpfg: %d\n", xstrcmp(f,g));
   return 0;
 }
