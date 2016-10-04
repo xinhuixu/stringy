@@ -21,14 +21,17 @@ char * xstrcpy( char *dst, char *src ) {
 
 char * xstrcat( char *head, char *tail ) {
   int i = xstrlen(head);
-  printf("i: %d\n",i);
+  // printf("lastIndex(head): %d\n",i);
   int j = 0;
   while (tail[j]) {
-    printf("head[%d] = %s\n",i,head[i]);
+    // printf("head[%d] = %c\n",i,head[i]);
+    // printf("tail[%d] = %c\n",j,tail[j]);
     head[i] = tail[j];
+    // printf("new! head[%d] = %c\n",i,head[i]);
     i++;
     j++;
   }
+  head[i] = 0;
   return head;
 }
 
@@ -41,6 +44,6 @@ int main() {
   printf("copied c: %s\n", c);
   char f[] = "lychee";
   xstrcat(c,f);
-  printf("concat lychee: %s\n",c);
+  printf("c concat 'lychee': %s\n",c);
   return 0;
 }
